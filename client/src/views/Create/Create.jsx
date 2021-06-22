@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { getTemperaments } from '../../Store/Actions/indexActions';
-import NewBreed from '../../components/NewBreed/NewBreed';
+
 import style from './Create.module.css';
 
 function validate(input) {
@@ -72,7 +72,7 @@ function Create() {
 			})
 		);
 	}
-// funcion para manejar la seleccion de temperamentos
+	// funcion para manejar la seleccion de temperamentos
 	function handleSelect(e) {
 		if (input.temperament.includes(parseInt(e.target.value))) {
 			alert('You already selected this temperament. Try again.');
@@ -103,11 +103,11 @@ function Create() {
 			alert('Something went wrong. Please try again.');
 		}
 	}
-//funcion para eliminar los temperamentos que elegimos mal
+	//funcion para eliminar los temperamentos que elegimos mal
 	function deleteTemp(e, t) {
 		setInput((prev) => ({ ...prev, temperament: prev.temperament.filter((temp) => temp !== parseInt(t)) }));
 	}
-//funcion para colocar todos los temperamentos seleccionados en un array
+	//funcion para colocar todos los temperamentos seleccionados en un array
 	function getNames(arr) {
 		let names = [];
 		temperaments.forEach((t) => {
@@ -120,14 +120,8 @@ function Create() {
 		return names;
 	}
 
-	const deleteBreed = id=>{
-		console.log("eliminando..." + id)
-		// const nuevasCitas=citas.filter(cita=>cita.id!==id);
-		// guardarCitas(nuevasCitas)
-	}
-
 	return (
-		<div className={style.body} >
+		<div className={style.body}>
 			<form onSubmit={handleSubmit} className={style.form}>
 				<div>
 					<h2 className={style.h2}>Create a Breed</h2>
@@ -186,8 +180,14 @@ function Create() {
 				</div>
 				<div>
 					<p className={style.p}>Temperaments</p>
-					<select name='temperaments' onChange={(e) => handleSelect(e)} required value={input.temperament} className={style.input}>
-						<option >Select</option>
+					<select
+						name='temperaments'
+						onChange={(e) => handleSelect(e)}
+						required
+						value={input.temperament}
+						className={style.input}
+					>
+						<option>Select</option>
 						{temperaments.map((e) => (
 							<option value={e.id} key={e.id}>
 								{e.name}
@@ -195,22 +195,22 @@ function Create() {
 						))}
 					</select>
 				</div>
-				<div >
+				<div>
 					{input.temperament.map((t) => (
-						<p id={t} className={style.temperament} >
+						<p id={t} className={style.temperament}>
 							{getNames([t])}{' '}
-							<button  type='button'  onClick={(e) => deleteTemp(e, t)} className={style.btn_X} >
+							<button type='button' onClick={(e) => deleteTemp(e, t)} className={style.btn_X}>
 								-x-
 							</button>
 						</p>
 					))}
 				</div>
 
-				<button type='submit' className={style.btn} >Submit</button>
+				<button type='submit' className={style.btn}>
+					Submit
+				</button>
 			</form>
-			{/* <NewBreed breed={input} deleteBreed={deleteBreed}/> */}
 		</div>
-		
 	);
 }
 export default Create;
