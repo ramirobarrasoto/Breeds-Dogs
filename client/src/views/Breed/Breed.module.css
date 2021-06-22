@@ -1,0 +1,91 @@
+.body {
+	background: url(../../image/image_mirrow2.jpg);
+
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	margin-top: 0%;
+	padding: 0%;
+
+	height: 100vh;
+	align-items: center;
+
+	box-sizing: border-box;
+}
+
+.box {
+	width: 50vh;
+	height: 25vh;
+	margin-left: 90vh;
+    margin-top: 10vh;
+	padding: 5px;
+	box-sizing: border-box;
+}
+.image {
+	/* border: 5px solid black; */
+	width: 60vh;
+	height: 45vh;
+	margin-left: 2vh;
+	margin-top: 25vh;
+	padding: 3px;
+	box-sizing: border-box;
+	box-shadow: 5px 19px 23px 8px rgba(0, 0, 0, 0.53);
+	border-radius: 15%;
+}
+
+.h2 {
+	color: #fff;
+	font-size: 3vh;
+	padding-left: 1vh;
+	margin-top: 1vh;
+	margin-left: 1vh;
+	text-align:center;
+	background: #1888ff;
+	border:2px solid black;
+	box-shadow: 5px 19px 23px 8px rgba(0, 0, 0, 0.53);
+	
+}
+
+.p {
+	color: #fff;
+	font-size: 3vh;
+	padding-left: 1vh;
+	margin-top: 1vh;
+	margin-left: 1vh;
+	background: #1888ff;
+	border: 1px solid black;
+	box-shadow: 5px 19px 23px 8px rgba(0, 0, 0, 0.53);
+	
+	
+}
+.p1 {
+	color: black;
+	font-size: 2vh;
+	text-align:center;
+	padding:0.5vh ;
+	margin-top: 1vh;
+	margin-left: 1vh;
+	background-color: rgb(255, 174, 17);
+	/* border: 1px solid black; */
+	box-shadow: 5px 19px 23px 8px rgba(0, 0, 0, 0.53);
+	animation-duration: 2s;
+	animation-name: slidein;
+	animation-iteration-count:initial;
+}
+.container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+@keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 50%
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 50%;
+    }
+  }
+
