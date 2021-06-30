@@ -3,8 +3,8 @@ import style from './SearchBar.module.css';
 
 function SearchBar({ input, setInput }) {
 	return (
-		<div>
-			<input
+		<div className={style.container}>
+			<input className={style.input}
 				type='text'
 				value={input}
 				placeholder='Type to search a Breed!'

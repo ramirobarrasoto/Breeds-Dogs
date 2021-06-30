@@ -6,16 +6,13 @@ import './NavBar.css';
 import SearchBar from '../SearchBar/SearchBar';
 
 function Navbar({ setInput, input }) {
+	/*************searchBar ***************/
 
-    /*************searchBar ***************/
-    
 	const [click, setClick] = useState(false);
-	
 
 	const handleClick = () => setClick(!click);
 	const closeMobileMenu = () => setClick(false);
 
-	
 	return (
 		<>
 			<nav className='navbar'>
@@ -31,19 +28,22 @@ function Navbar({ setInput, input }) {
 							Home
 						</Link>
 					</li>
-					
+
 					<li className='nav-item'>
 						<Link to='/about_us' className='nav-links' onClick={closeMobileMenu}>
 							About Us
 						</Link>
 					</li>
-					<li className='nav-item'>
+					{/* <li className='nav-item'>
 						<Link to='/sign-up' className='nav-links-mobile' onClick={closeMobileMenu}>
 							Sign up
 						</Link>
+					</li> */}
+					<li>
+						<SearchBar input={input} setInput={setInput} />
 					</li>
 				</ul>
-				<SearchBar input={input} setInput={setInput} />
+
 				<Button />
 			</nav>
 		</>

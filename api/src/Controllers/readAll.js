@@ -39,6 +39,9 @@ const readAll = async (req, res) => {
 			const response = myBreedResult.concat(apiBreedResult);
 			res.send(response);
 		});
+
+		/*********************** read All **********************/
+		
 	} else {
 		try {
 			const breedDB = Breed.findAll({

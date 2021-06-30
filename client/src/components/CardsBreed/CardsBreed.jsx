@@ -1,10 +1,7 @@
 import React from 'react';
-//import Card from '../Card/Card';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getBreeds, setLoading } from '../../Store/Actions/indexActions';
-//import Pagination from '../Pagination/Pagination';
-
 import { Link } from 'react-router-dom';
 import style from './CardsBreed.module.css';
 
@@ -13,10 +10,7 @@ import style from './CardsBreed.module.css';
 function CardsBreed({ input, setInput }) {
 	const dispatch = useDispatch();
 
-	/***********PAGINADO **************/
-
-	// const [currentPage, setCurrentPage] = useState(1);
-	// const [breedsPerPage, setBreedsPerPage] = useState(8);
+	
 
 	useEffect(() => {
 		dispatch(setLoading());
@@ -26,20 +20,14 @@ function CardsBreed({ input, setInput }) {
 	const breeds = useSelector((state) => state.breeds);
 	const loading = useSelector((state) => state.loading);
 	const filteredBreeds = useSelector((state) => state.filteredBreeds);
-	//GET CURRENT BREEDS
-	// const indexOflastBreed = currentPage * breedsPerPage;
-	// const indexOfFirstBreed = indexOflastBreed - breedsPerPage;
-	// const currentBreeds = breeds.slice(indexOfFirstBreed, indexOflastBreed);
-	// const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-	
+		
 
 	const [currentPage, setcurrentPage] = useState(0);
-	const nextPage = async () => {
-		await setcurrentPage(currentPage + 12);
+	const nextPage =  () => {
+		 setcurrentPage(currentPage + 12);
 	};
-	const prevPage = async () => {
-		if (currentPage > 0) await setcurrentPage(currentPage - 12);
+	const prevPage =  () => {
+		if (currentPage > 0)  setcurrentPage(currentPage - 12);
 	};
 
 	const numberPage = currentPage / 12 + 1;
@@ -84,9 +72,9 @@ function CardsBreed({ input, setInput }) {
 			}).slice(currentPage, currentPage + 8)
 		) : (
 			<div>
-				<p>We couldn't find the breed.</p>
+				<h1>We couldn't find the breed.</h1>
 				<img src='https://acegif.com/wp-content/gif/smiling-dog-4.gif' alt='no paso nada' />
-				<button onClick={() => (window.location.href = '/home')}>Go back</button>
+				<button onClick={() => (window.location.href = '/home')}>Go back home</button>
 			</div>
 		);
 	}

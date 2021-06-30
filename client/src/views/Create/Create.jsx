@@ -82,6 +82,13 @@ function Create() {
 			setInput((prev) => ({ ...prev, temperament: [...prev.temperament, parseInt(e.target.value)] }));
 		}
 	}
+
+	function onFocus(ev) {
+		setTouched({
+			...touched,
+			[ev.target.name]: true,
+		});
+	}
 	//funcion para manejar el submit de la info
 	function handleSubmit(e) {
 		e.preventDefault();
@@ -132,8 +139,10 @@ function Create() {
 						type='text'
 						name='name'
 						placeholder='write here'
+						autoComplete='off'
 						onChange={handleInput}
 						required='required'
+						onFocus={onFocus}
 						value={input.name}
 						className={style.input}
 					/>
@@ -145,8 +154,10 @@ function Create() {
 						type='text'
 						name='weight'
 						placeholder='write here'
+						autoComplete='off'
 						onChange={handleInput}
 						required='required'
+						onFocus={onFocus}
 						value={input.weight}
 						className={style.input}
 					/>
@@ -158,8 +169,10 @@ function Create() {
 						type='text'
 						name='height'
 						placeholder='write here'
+						autoComplete='off'
 						onChange={handleInput}
 						required='required'
+						onFocus={onFocus}
 						value={input.height}
 						className={style.input}
 					/>
@@ -171,8 +184,10 @@ function Create() {
 						type='text'
 						name='life_span'
 						placeholder='write here'
+						autoComplete='off'
 						onChange={handleInput}
 						required='required'
+						onFocus={onFocus}
 						value={input.life_span}
 						className={style.input}
 					/>
@@ -188,6 +203,7 @@ function Create() {
 						className={style.input}
 					>
 						<option>Select</option>
+						{/* recorrido de todos los temperamentos  */}
 						{temperaments.map((e) => (
 							<option value={e.id} key={e.id}>
 								{e.name}
@@ -196,6 +212,7 @@ function Create() {
 					</select>
 				</div>
 				<div>
+					{/* temperamentos elegidos */}
 					{input.temperament.map((t) => (
 						<p id={t} className={style.temperament}>
 							{getNames([t])}{' '}

@@ -10,7 +10,7 @@ import style from './Breed.module.css';
 
 function Breed({ match }) {
 	const id = match.params.id;
-	console.log(match.params.id);
+	
 
 	const dispatch = useDispatch();
 

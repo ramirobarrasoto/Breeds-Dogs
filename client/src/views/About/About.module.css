@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+}
+
+.body{
+    
+    background-color: #F1FAFF;
+}
+.container_card{
+max-width: 1200px;
+margin: auto;
+margin-top: 80px;
+perspective: 1000px;
+display: flex;
+justify-content: center;
+}
+.card_father{
+margin: 20px;
+perspective: 1000px;
+
+}
+.card_father:hover .card{
+    transform: rotateY(180deg);
+}
+.card{
+    width: 350px;
+    height: 400px;
+    
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 1500ms;
+}
+
+.body_card_front,
+.body_card_back{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transform: translateZ(80px);
+}
+.card_front,
+.card_back{
+ width: 100%;
+ height: 100%;
+ position: absolute;
+ top: 0;
+ left: 0;
+ backface-visibility: hidden;
+ transform-style: preserve-3d;
+ border-radius: 20px;
+}
+
+.card_front{
+    background-image: url(../../image/cute-dog-wearing-glasses.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.card_back{
+    transform: rotateY(180deg);
+    background-color:goldenrod ;
+   }
+
+/* .body_card_back{
+    padding: 40px;
+    text-align: center;
+    transform: translateZ(60px);
+} */
+
+.bg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.4);
+    border-radius: 20px;
+}

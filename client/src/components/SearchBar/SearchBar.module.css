@@ -1,67 +1,19 @@
-.button {
-    color: white;
-    background-color: #00d2ad;
-    border-radius: 25px;
-    border: none;
-    font: inherit;
-    padding: 10px;
+.container{
+    font-family: inherit;
+    width: 250px;
+    /* height: 100px; */
+    align-items: center;
+    margin-top: 25px;  
     outline: none;
+    /* border: 2px solid white; */
+    /* margin-bottom: 10px; */
+    
 }
-
-.button:hover{
-    background-color: #1bac91;
-    transition: all .2s;
-}
-
-.formContainer{
-    display: flex;
-    /* flex-direction: column; */
-}
-
-::placeholder {
-    opacity: 0.5;
- }
-
 .input{
-    font-family: inherit;
-    padding: 10px;
-    width: 200px;
-    border-radius: 20px;
-    margin-right: 4px;
-    border: 2px solid #0000004f;
-    outline: none;
-    /* margin-bottom: 10px; */
-    
-}
-
-.input:hover{
-    font-family: inherit;
-    padding: 10px;
-    border-radius: 20px;
-    border: 2px solid #95f7e5;
-    outline: none;
-    /* margin-bottom: 10px; */
-    
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 2px;
 }
 
 
-.input:focus{
-    border: 2px solid #00d2ad;
-}
 
-.search{
- color: #00d2ad; 
- font-size: 25px;
- transform: scaleX(-1);
- padding-top: 4px;
-}
-
-.searchBarContainer{
-    display:  flex;
-}
-
-@media screen and (max-width: 414px){
-    .searchBarContainer{
-        margin-top: 10px;
-    }
-    }

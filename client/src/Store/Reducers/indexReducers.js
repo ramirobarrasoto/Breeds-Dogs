@@ -59,12 +59,12 @@ const reducers = (state = initialState, action) => {
 		case MINMAX:
 			return {
 				...state,
-				breeds: state.breeds.filter((b) => b.weight !== null).sort((a, b) => (a.weight < b.weight ? 1 : -1)),
+				breeds: state.breeds.filter((b) => b.weight !== null).sort((a, b) => (parseInt(a.weight) < parseInt(b.weight) ? 1 : -1)),
 			};
 		case MAXMIN:
 			return {
 				...state,
-				breeds: state.breeds.filter((b) => b.weight !== null).sort((a, b) => (a.weight > b.weight ? 1 : -1)),
+				breeds: state.breeds.filter((b) => (b.weight !== null)).sort((a, b) => (parseInt(a.weight) > parseInt(b.weight) ? 1 : -1)),
 			};
 		case DB:
 			return {
@@ -74,7 +74,7 @@ const reducers = (state = initialState, action) => {
 		case API:
 			return {
 				...state,
-				breeds: state.breeds.filter((b) => b.id < 500),
+				breeds: state.breeds.filter((b) => b.id < 1000),
 			};
 		case GET_TEMPERAMENT:
 			return {
