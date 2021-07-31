@@ -1,5 +1,5 @@
 
-# Individual Project - Dogs with thedogapi  
+# Individual Project - Dogs with <i>thedogapi </i> 
 
 <p align="left">
   <img height="200" src="./dog.png" />
