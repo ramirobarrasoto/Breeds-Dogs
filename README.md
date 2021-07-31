@@ -2,7 +2,7 @@
     <img src='https://static.wixstatic.com/media/85087f_0d84cbeaeb824fca8f7ff18d7c9eaafd~mv2.png/v1/fill/w_160,h_30,al_c,q_85,usm_0.66_1.00_0.01/Logo_completo_Color_1PNG.webp' </img>
 </p>
 
-# Individual Project - Henry Dogs
+# Individual Project - Dogs with thedogapi  
 
 <p align="left">
   <img height="200" src="./dog.png" />
@@ -16,40 +16,27 @@
 - Aprender y practicar el workflow de GIT.
 - Usar y practicar testing.
 
-## Horarios y Fechas
+## Desafio del proyecto
 
-El proyecto tendrá una duración máxima de tres semanas. En el caso de que completan todas las tareas antes de dicho lapso podrán avisar a su Instructor para coordinar una fecha de presentación del trabajo (DEMO).
-
-## Comenzando
-
- 1. Se debe iniciar git con `git init`
- 2. Crear en su cuenta de GitHub un nuevo repo con el nombre `PI-Dogs-FT__` donde `__` es el numero de cohorte en el que estas
- 3. Hacer un commit inicial ej: `git add .` => `git commit -m "init"` => `git branch -M main`
- 4. Seguir las instrucciones de GitHub para 'conectar' su repositorio local con GitHub `git remote add........`
- 5. Hacer push de ese commit `git push -u origin main`
- 6. No olvidar que deben regularmente hacer commit y push para mantener el repo actualizado en la nube
-
-Tendrán un `boilerplate` con la estructura general tanto del servidor como de cliente.
-
-__IMPORTANTE:__ Es necesario contar minimamente con la última versión estable de Node y NPM. Asegurarse de contar con ella para poder instalar correctamente las dependecias necesarias para correr el proyecto.
-
-## BoilerPlate
-
-El boilerplate cuenta con dos carpetas: `api` y `client`. En estas carpetas estará el código del back-end y el front-end respectivamente.
-
-En `api` crear un archivo llamado: `.env` que tenga la siguiente forma:
-
-```
-DB_USER=usuariodepostgres
-DB_PASSWORD=passwordDePostgres
-DB_HOST=localhost
-```
-
-Reemplazar `usuariodepostgres` y `passwordDePostgres` con tus propias credenciales para conectarte a postgres. Este archivo va ser ignorado en la subida a github, ya que contiene información sensible (las credenciales).
+El proyecto tendrá un tiempo de entrega máximo de tres semanas.
 
 Adicionalmente será necesario que creen desde psql una base de datos llamada `dogs`
 
 El contenido de `client` fue creado usando: Create React App.
+
+#### Tecnologías necesarias:
+- [ ] React
+- [ ] Redux
+- [ ] Express
+- [ ] Sequelize - Postgres
+
+## Elementos del proyecto:
+
+
+- [ ]  Barra de navegacion: botones para poder cambiar el ordenamiento de las razas( por nombre o por peso), botones para filtrar por raza de la DB o existente en la API.
+- [ ]  Home: renderiza cartas de razas que incluyen una foto, nombre, tipo de raza y un boton para acceder a mas detalles de la raza.
+- [ ]  Detalle de la raza seleccionada: incluye todos los datos de la raza ( tamaño, peso, imagen, tiempo de vida, temperamentos, etc ).
+- [ ]  Formulario de creacion: Crea una raza con sus respectivos datos ( detalle de la raza ) y almacena en la base de datos.
 
 ## Enunciado
 
@@ -74,11 +61,7 @@ A continuación se detallaran los requerimientos mínimos para la aprobación de
 
 __IMPORTANTE__: No se permitirá utilizar librerías externas para aplicar estilos a la aplicación. Tendrán que utilizar CSS con algunas de las opciones que vimos en dicha clase (CSS puro, CSS Modules o Styled Components)
 
-#### Tecnologías necesarias:
-- [ ] React
-- [ ] Redux
-- [ ] Express
-- [ ] Sequelize - Postgres
+
 
 #### Frontend
 
