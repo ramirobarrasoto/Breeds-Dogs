@@ -30,10 +30,10 @@ El contenido de `client` fue creado usando: Create React App.
 ## Elementos del proyecto:
 
 
-- [ ]  Barra de navegacion: botones para poder cambiar el ordenamiento de las razas( por nombre o por peso), botones para filtrar por raza de la DB o existente en la API.
+- [ ]  Barra de navegación: botones para poder cambiar el ordenamiento de las razas (por nombre o por peso), botones para filtrar por raza de la DB o existente en la API.
 - [ ]  Home: renderiza cartas de razas que incluyen una foto, nombre, tipo de raza y un boton para acceder a mas detalles de la raza.
-- [ ]  Detalle de la raza seleccionada: incluye todos los datos de la raza ( tamaño, peso, imagen, tiempo de vida, temperamentos, etc ).
-- [ ]  Formulario de creacion: Crea una raza con sus respectivos datos ( detalle de la raza ) y almacena en la base de datos.
+- [ ]  Detalle de la raza seleccionada: incluye todos los datos de la raza (tamaño, peso, imagen, tiempo de vida, temperamentos, etc).
+- [ ]  Formulario de creación: Crea una raza con sus respectivos datos (detalle de la raza) y almacena en la base de datos.
 
 ## Enunciado
 
@@ -43,100 +43,78 @@ La idea general es crear una aplicación en la cual se puedan ver distintas raza
   - Filtrarlos / Ordenarlos
   - Agregar nuevos perros
 
-__IMPORTANTE__: Para poder utilizar esta API externa es necesario crearse una cuenta para obtener una API Key que luego debera ser incluida en todos los request que hagamos a rawg simplemente agregando `?api_key={YOUR_API_KEY}` al final de cada endpoint. Agregar la clave en el archivo `.env` para que la misma no se suba al repositorio por cuestiones de seguridad y utilizarla desde allí.
-
-__IMPORTANTE__: Para las funcionalidades de filtrado y ordenamiento NO pueden utilizar los endpoints de la API externa que ya devuelven los resultados filtrados u ordenados sino que deben realizarlo ustedes mismos. En particular alguno de los ordenamientos o filtrados debe si o si realizarse desde el frontend.
-
-### Únicos Endpoints/Flags que pueden utilizar
-
-  - GET https://api.thedogapi.com/v1/breeds
-  - GET https://api.thedogapi.com/v1/breeds/search?q={raza_perro}
-
-### Requerimientos mínimos:
-
-A continuación se detallaran los requerimientos mínimos para la aprobación del proyecto individial. Aquellos que deseen agregar más funcionalidades podrán hacerlo. En cuanto al diseño visual no va a haber wireframes ni prototipos prefijados sino que tendrán libertad de hacerlo a su gusto pero tienen que aplicar los conocimientos de estilos vistos en el curso para que quede agradable a la vista.
-
-__IMPORTANTE__: No se permitirá utilizar librerías externas para aplicar estilos a la aplicación. Tendrán que utilizar CSS con algunas de las opciones que vimos en dicha clase (CSS puro, CSS Modules o Styled Components)
-
-
 
 #### Frontend
 
-Se debe desarrollar una aplicación de React/Redux que contenga las siguientes pantallas/rutas.
+Se debe desarrolló una aplicación de React/Redux que contiene las siguientes pantallas/rutas.
 
-__Pagina inicial__: deben armar una landing page con
-- [ ] Alguna imagen de fondo representativa al proyecto
+__Pagina inicial__: una landing page con
+- [ ] Una imagen de fondo representativa al proyecto
 - [ ] Botón para ingresar al home (`Ruta principal`)
 
-__Ruta principal__: debe contener
+__Ruta principal__: contiene
 - [ ] Input de búsqueda para encontrar razas de perros por nombre
-- [ ] Área donde se verá el listado de razas de perros. Deberá mostrar su:
+- [ ] Área donde se verá el listado de razas de perros. Muestra:
   - Imagen
   - Nombre
   - Temperamento
-- [ ] Botones/Opciones para filtrar por por temperamento y por raza existente o agregada por nosotros
-- [ ] Botones/Opciones para ordenar tanto ascendentemente como descendentemente las razas de perro por orden alfabético y por peso
-- [ ] Paginado para ir buscando y mostrando las siguientes razas
+- [ ] Opciones para filtrar por por temperamento y por raza existente o agregada por nosotros
+- [ ] Opciones para ordenar tanto ascendentemente como descendentemente las razas de perro por orden alfabético y por peso
+- [ ] Paginado para buscar y mostrar las siguientes razas
 
-__IMPORTANTE__: Dentro de la Ruta Principal se deben mostrar tanto las razas de perros traidas desde la API como así también las de la base de datos.
+__IMPORTANTE__: Dentro de la Ruta Principal se muestran tanto las razas de perros traidas desde la API como también las de la base de datos.
 
-__Ruta de detalle de raza de perro__: debe contener
+__Ruta de detalle de raza de perro__: contiene
 - [ ] Los campos mostrados en la ruta principal para cada raza (imagen, nombre y temperamento)
 - [ ] Altura
 - [ ] Peso
 - [ ] Años de vida
 
-__Ruta de creación de raza de perro__: debe contener
+__Ruta de creación de raza de perro__: contiene
 - [ ] Un formulario __controlado__ con los siguientes campos
   - Nombre
   - Altura (Diferenciar entre altura mínima y máxima)
   - Peso (Diferenciar entre peso mínimo y máximo)
   - Años de vida
-- [ ] Posibilidad de seleccionar/agregar uno o más temperamentos
-- [ ] Botón/Opción para crear una nueva raza de perro
+- [ ] Posibilidad de agregar uno o más temperamentos
+- [ ] Opción de crear una nueva raza de perro
 
 #### Base de datos
 
-El modelo de la base de datos deberá tener las siguientes entidades (Aquellas propiedades marcadas con asterísco deben ser obligatorias):
+El modelo de la base de datos tiene las siguientes entidades:
 
 - [ ] Raza con las siguientes propiedades:
-  - ID *
-  - Nombre *
-  - Altura *
-  - Peso *
+  - ID 
+  - Nombre 
+  - Altura 
+  - Peso 
   - Años de vida
 - [ ] Temperamento con las siguientes propiedades:
   - ID
   - Nombre
 
-La relación entre ambas entidades debe ser de muchos a muchos ya que una raza de perro puede tener varios "temperamentos" en simultaneo y, a su vez, un "temperamento" puede corresponder a múltiples razas de perro distintas. Por ejemplo la raza `pug` es docil, inteligente y sociable (entre otras). Pero a su vez existen otras razas de perro que también son sociables o inteligentes.
+La relación entre ambas entidades es de muchos a muchos ya que una raza de perro puede tener varios "temperamentos" en simultaneo y, a su vez, un "temperamento" puede corresponder a múltiples razas de perros. Por ejemplo, la raza `pug` es dócil, inteligente y sociable (entre otras). Pero a su vez existen otras razas de perro que también son sociables o inteligentes.
 
-__IMPORTANTE__: Pensar como modelar los IDs de las razas de perros en la base de datos. Existen distintas formas correctas de hacerlo pero tener en cuenta que cuando hagamos click en alguna, esta puede provenir de la API o de la Base de Datos por lo que cuando muestre su detalle no debería haber ambigüedad en cual se debería mostrar. Por ejemplo si en la API la raza `Pug` tiene id = 1 y en nuestra base de datos creamos una nueva raza `Henry Pug` con id = 1, ver la forma de diferenciarlas cuando querramos acceder al detalle de la misma.
 
 #### Backend
 
-Se debe desarrollar un servidor en Node/Express con las siguientes rutas:
-
-__IMPORTANTE__: No está permitido utilizar los filtrados, ordenamientos y paginados brindados por la API externa, todas estas funcionalidades tienen que implementarlas ustedes.
+Se desarrolló un servidor en Node/Express con las siguientes rutas:
 
 - [ ] __GET /dogs__:
-  - Obtener un listado de las primeras 8 razas de perro
-  - Debe devolver solo los datos necesarios para la ruta principal
+  - Obtiene un listado de las primeras 8 razas de perro
+  - Devuelve solo los datos necesarios para la ruta principal
 - [ ] __GET /dogs?name="..."__:
-  - Obtener un listado de las primeras 8 razas de perro que contengan la palabra ingresada como query parameter
-  - Si no existe ninguna raza de perro mostrar un mensaje adecuado
+  - Obtiene un listado de las primeras 8 razas de perro que contengan la palabra ingresada como query parameter
+  - Si no existe ninguna raza de perro muestra un mensaje adecuado
 - [ ] __GET /dogs/{idRaza}__:
-  - Obtener el detalle de una raza de perro en particular
-  - Debe traer solo los datos pedidos en la ruta de detalle de raza de perro
-  - Incluir los temperamentos asociados
+  - Obtiene el detalle de una raza de perro en particular
+  - Devuelve solo los datos pedidos en la ruta de detalle de raza de perro
+  - Incluye los temperamentos asociados
 - [ ] __GET /temperament__:
-  - Obtener todos los temperamentos posibles
-  - En una primera instancia deberán obtenerlos desde la API externa y guardarlos en su propia base de datos y luego ya utilizarlos desde allí
+  - Obtiene todos los temperamentos posibles
+  - Los temperamentos fueron previamente cargados a la base de datos desde la API
 - [ ] __POST /dog__:
   - Recibe los datos recolectados desde el formulario controlado de la ruta de creación de raza de perro por body
   - Crea una raza de perro en la base de datos
 
-#### Testing
-- [ ] Al menos tener un componente del frontend con sus tests respectivos
-- [ ] Al menos tener una ruta del backend con sus tests respectivos
-- [ ] Al menos tener un modelo de la base de datos con sus tests respectivos
+
