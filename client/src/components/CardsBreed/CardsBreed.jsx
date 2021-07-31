@@ -15,7 +15,7 @@ function CardsBreed({ input, setInput }) {
 	useEffect(() => {
 		dispatch(setLoading());
 		dispatch(getBreeds());
-	}, []);
+	}, [dispatch]);
 
 	const breeds = useSelector((state) => state.breeds);
 	const loading = useSelector((state) => state.loading);

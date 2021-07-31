@@ -16,10 +16,10 @@ function Breed({ match }) {
 
 	useEffect(() => {
 		dispatch(getBreedsById(id));
-	}, []);
+	}, [dispatch,id]);
 
 	const breedsDetail = useSelector((state) => state.breedsDetail);
-	//console.log("desde cardsDetail",breedsDetail);
+	
 
 	return (
 		<div className={style.body}>

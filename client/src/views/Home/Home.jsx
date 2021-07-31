@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import CardsBreed from '../../components/CardsBreed/CardsBreed';
-import Cards_3D from '../../components/Cards_3D/Cards_3D';
+import React  from 'react';
+//import CardsBreed from '../../components/CardsBreed/CardsBreed';
+import Cards3D from '../../components/Cards_3D/Cards_3D';
 import Filter from '../../components/Filter/Filter';
 import style from './Home.module.css';
 
@@ -15,7 +15,7 @@ function Home({ input, setInput }) {
 				<CardsBreed input={input} setInput={setInput} />
 			</div> */}
 			<div>
-				<Cards_3D input={input} setInput={setInput} />
+				<Cards3D input={input} setInput={setInput} />
 			</div>
 		</div>
 	);

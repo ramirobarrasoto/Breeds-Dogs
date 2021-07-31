@@ -9,7 +9,7 @@ function Filter() {
 	//obtenemos todos los temperamentos
 	useEffect(() => {
 		dispatch(getTemperaments());
-	}, []);
+	}, [dispatch]);
 	// los llevamos a una constante
 	const temperaments = useSelector((state) => state.temperaments);
 	const breeds = useSelector((state) => state.breeds);

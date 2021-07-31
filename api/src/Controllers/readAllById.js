@@ -14,7 +14,7 @@ async function readAllById(req, res) {
 					model:Temperament
 				}
 			});
-			console.log(breedDB);
+		
 			return res.json(breedDB);
 		} else {
 			const { data } = await axios.get(`https://api.thedogapi.com/v1/breeds/${id}?apikey=${API_KEY}`);
@@ -28,7 +28,7 @@ async function readAllById(req, res) {
 				life_span: data.life_span,
 				temperament:data.temperament,
 			};
-			console.log(breed);
+		
 
 			res.send(breed);
 		}

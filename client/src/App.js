@@ -13,13 +13,13 @@ function App() {
 	return (
 		<BrowserRouter>
 			<Switch>
-				<Route exact path='/' exact component={LandingPage} />
+				<Route exact path='/'  component={LandingPage} />
 				<Route path='/'>
 					<NavBar input={input} setInput={setInput} />
 					<Route exact path='/home' render={() => <Home input={input} setInput={setInput} />} />
-					<Route exact path='/home/:id' exact component={Breed} />
-					<Route exact path='/about_us' exact component={About} />
-					<Route exact path='/create' exact component={Create} />
+					<Route exact path='/home/:id'  component={Breed} />
+					<Route exact path='/about_us' component={About} />
+					<Route exact path='/create'  component={Create} />
 				</Route>
 			</Switch>
 		</BrowserRouter>

@@ -14,7 +14,7 @@ function Cards_3D({ input, setInput }) {
 	useEffect(() => {
 		dispatch(setLoading());
 		dispatch(getBreeds());
-	}, []);
+	}, [dispatch]);
 
 	const breeds = useSelector((state) => state.breeds);
 	const loading = useSelector((state) => state.loading);
@@ -51,7 +51,7 @@ function Cards_3D({ input, setInput }) {
 			breedsToDisplay
 				.map((b) => {
 					return (
-						<div className={style.card_father}>
+						<div key={b.id} className={style.card_father}>
 							<div className={style.card}>
 								<div className={style.card_front}>
 									<div className={style.bg}></div>
@@ -65,11 +65,11 @@ function Cards_3D({ input, setInput }) {
 										<p className={style.p1}>TEMPERAMENTS</p>
 
 										{b.id.length ? (
-											<p>
+											<div>
 												{b.temperaments.map((t) => {
-													return <p className={style.p1}>{t.name}</p>;
+													return <p key={t.id} className={style.p1}>{t.name}</p>;
 												})}
-											</p>
+											</div>
 										) : (
 											<p className={style.p1}>{b.temperament}</p>
 										)}

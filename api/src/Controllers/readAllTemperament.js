@@ -26,7 +26,7 @@ async function readAllTemperament(req, res, next) {
 	});
 
 	const temperamentDB = await Temperament.bulkCreate(temp);
-	// console.log(temperamentDB);
+	
 	res.send(temperamentDB);
 }
 
