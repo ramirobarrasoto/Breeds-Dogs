@@ -111,7 +111,7 @@ function Cards_3D({ input, setInput }) {
 
 			<div className={style.paginado}>
 				<button className={style.btn} onClick={prevPage}>
-					Previus
+					Previous
 				</button>
 				<p className={style.btn}>{numberPage}</p>
 
