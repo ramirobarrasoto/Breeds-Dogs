@@ -113,7 +113,7 @@ export default CardsBreed;
 // 	const [breeds, setBreeds] = useState([]);
 
 // 	function getBreeds() {
-// 		return axios.get('http://localhost:3001/breeds').then((breeds) => setBreeds(breeds.data));
+// 		return axios.get('/breeds').then((breeds) => setBreeds(breeds.data));
 // 	}
 // 	useEffect(() => {
 // 		getBreeds();
@@ -137,7 +137,7 @@ function CardsBreed({breeds, getBreeds}) {
 	
 
 	//  function getBreeds() {
-	//  	return axios.get('http://localhost:3001/breeds').then((breeds) => setBreeds(breeds.data));
+	//  	return axios.get('/breeds').then((breeds) => setBreeds(breeds.data));
 	//  }
 	 function getBreedsFunction() {
 		 	getBreeds();

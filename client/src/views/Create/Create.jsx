@@ -94,7 +94,7 @@ function Create() {
 		e.preventDefault();
 		if (!errors.name && !errors.weight && !errors.height && !errors.life_span) {
 			axios
-				.post('http://localhost:3001/breeds', input)
+				.post('/breeds', input)
 				.then((r) => {
 					alert('Breed created successfully!');
 					setInput({

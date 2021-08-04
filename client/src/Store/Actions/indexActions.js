@@ -15,7 +15,7 @@ export const FILTER = 'FILTER';
 
 export function getBreeds() {
 	return function (dispatch) {
-		return axios.get('http://localhost:3001/breeds').then((breeds) => {
+		return axios.get('/breeds').then((breeds) => {
 			dispatch({
 				type: 'GET_BREEDS',
 				payload: breeds.data,
@@ -25,7 +25,7 @@ export function getBreeds() {
 }
 export function getBreed(name) {
 	return function (dispatch) {
-		return axios.get(`http://localhost:3001/breeds?name=${name}`).then((breed) => {
+		return axios.get(`/breeds?name=${name}`).then((breed) => {
 			dispatch({
 				type: 'GET_BREED',
 				payload: breed.data,
@@ -35,7 +35,7 @@ export function getBreed(name) {
 }
 export function getBreedsById(id) {
 	return function (dispatch) {
-		return axios.get(`http://localhost:3001/breeds/${id}`).then((breeds) => {
+		return axios.get(`/breeds/${id}`).then((breeds) => {
 		
 			dispatch({
 				type: 'GET_BREEDS_ID',
@@ -46,7 +46,7 @@ export function getBreedsById(id) {
 }
 export function getTemperaments(id) {
 	return function (dispatch) {
-		return axios.get('http://localhost:3001/temperament').then((temperament) => {
+		return axios.get('/temperament').then((temperament) => {
 			dispatch({
 				type: 'GET_TEMPERAMENT',
 				payload: temperament.data,
