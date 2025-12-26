@@ -16,7 +16,7 @@ const readAll = async (req, res) => {
 			},
 		});
 
-		const api = await axios.get(`https://api.thedogapi.com/v1/breeds/search?q=${q}&apikey=${API_KEY}`);
+		const api = await axios.get(`https://api.thedogapi.com/v1/breeds/search?q=${q}&api_key=${API_KEY}`);
 		//.then((dog) => res.json(dog.data));
 		const breed = api.data.map(async (b) => {
 			return {
@@ -26,8 +26,8 @@ const readAll = async (req, res) => {
 					'https://cdn2.thedogapi.com/images/' + b.reference_image_id + '.jpg' ||
 					'https://i.blogs.es/ab74c7/fotografo-de-perros_-santos-roman-piccolo-italiano/450_1000.jpg',
 				temperament: b.temperament || 'Could not get a temperament',
-				weight: b.weight.metric || 'Could not get information',
-				height: b.height.metric || 'Could not get information',
+				weight: b.weight?.metric || 'Could not get information',
+				height: b.height?.metric || 'Could not get information',
 				life_span: b.life_span || 'Could not get information',
 			};
 		});
@@ -41,7 +41,7 @@ const readAll = async (req, res) => {
 		});
 
 		/*********************** read All **********************/
-		
+
 	} else {
 		try {
 			const breedDB = Breed.findAll({
@@ -57,11 +57,11 @@ const readAll = async (req, res) => {
 					id: b.id || 'Could not get id',
 					name: b.name || 'Could not get name',
 					image:
-						b.image.url ||
+						b.image?.url ||
 						'https://i.blogs.es/ab74c7/fotografo-de-perros_-santos-roman-piccolo-italiano/450_1000.jpg',
 					temperament: b.temperament || 'Could not get a temperament',
-					weight: b.weight.metric || 'Could not get information',
-					height: b.height.metric || 'Could not get information',
+					weight: b.weight?.metric || 'Could not get information',
+					height: b.height?.metric || 'Could not get information',
 					life_span: b.life_span || 'Could not get information',
 				};
 			});
