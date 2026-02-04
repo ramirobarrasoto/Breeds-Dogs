@@ -1,120 +1,90 @@
+# 🐶 The Dog App
 
-# Individual Project - Dogs with <i>thedogapi </i> 
+A full-stack application for exploring, searching, and creating dog breeds. Designed as a comprehensive catalog, it consumes [The Dog API](https://thedogapi.com/) and allows users to create and store their own custom breeds in a local PostgreSQL database.
 
-<p align="left">
-  <img height="200" src="./dog.png" />
-</p>
+## 🚀 Technologies
 
-## Objetivos del Proyecto
+The project is built using the **PERN Stack** (Postgres, Express, React, Node).
 
-- Construir una App utlizando React, Redux, Node y Sequelize.
-- Afirmar y conectar los conceptos aprendidos en la carrera.
-- Aprender mejores prácticas.
-- Aprender y practicar el workflow de GIT.
-- Usar y practicar testing.
+### Frontend
+*   ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) **React.js**: Component-based UI architecture.
+*   ![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white) **Redux**: Predictable state container for global data management.
+*   ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) **CSS Modules**: Scoped styling for modular components.
 
-## Desafio del proyecto
+### Backend
+*   ![Nodejs](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white) **Node.js** & **Express**: Robust RESTful API handling requests and routing.
+*   ![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=sequelize&logoColor=white) **Sequelize**: Promise-based ORM for PostgreSQL.
+*   ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white) **PostgreSQL**: Relational database for persistent storage.
 
-El proyecto tendrá un tiempo de entrega máximo de tres semanas.
+## 🏗 Architecture Overview
 
-Adicionalmente será necesario que creen desde psql una base de datos llamada `dogs`
+The system utilizes a decoupled client-server architecture:
 
-El contenido de `client` fue creado usando: Create React App.
+1.  **Client Application**: A Single Page Application (SPA) built with React. It communicates with the custom backend API to fetch breed data. It features client-side routing (React Router) and complex state management (Redux) to handle filtering, sorting, and pagination of breeds.
+2.  **API Gateway / Server**: The Express backend serves as a unified entry point. It employs a **Data Aggregation Pattern**, simultaneously fetching data from the external "The Dog API" and the local PostgreSQL database, merging the results before sending them to the client. This ensures the user sees a unified list of breeds regardless of their source.
+3.  **Persistence Layer**: A PostgreSQL database is used to persist user-generated breeds and their relationships with temperaments (Many-to-Many relationship).
 
-#### Tecnologías necesarias:
-- [ ] React
-- [ ] Redux
-- [ ] Express
-- [ ] Sequelize - Postgres
+## 🛠 Installation & Execution Guide
 
-## Elementos del proyecto:
+### Prerequisites
+*   **Node.js**: v18.x or higher.
+*   **PostgreSQL**: Installed and running locally.
 
+### 1. Database Setup
+Ensure you have a PostgreSQL instance running. Create a database (e.g., `dogs_db`).
 
-- [ ]  Barra de navegación: botones para poder cambiar el ordenamiento de las razas (por nombre o por peso), botones para filtrar por raza de la DB o existente en la API.
-- [ ]  Home: renderiza cartas de razas que incluyen una foto, nombre, tipo de raza y un boton para acceder a mas detalles de la raza.
-- [ ]  Detalle de la raza seleccionada: incluye todos los datos de la raza (tamaño, peso, imagen, tiempo de vida, temperamentos, etc).
-- [ ]  Formulario de creación: Crea una raza con sus respectivos datos (detalle de la raza) y almacena en la base de datos.
+### 2. Backend Setup (API)
+Navigate to the `api` directory:
+```bash
+cd api
+```
 
-## Enunciado
+Install dependencies:
+```bash
+npm install
+```
 
-La idea general es crear una aplicación en la cual se puedan ver distintas razas de perro junto con información relevante de las mismas utilizando la api externa [the dog api](https://thedogapi.com/) y a partir de ella poder, entre otras cosas:
+**Configuration:**
+Create a `.env` file in the `api` root with the following variables (adjust to your local setup):
+```env
+DB_USER=postgres
+DB_PASSWORD=your_password
+DB_HOST=localhost
+DB_NAME=dogs_db
+API_KEY=your_thedogapi_api_key
+PORT=3001
+```
 
-  - Buscar perros
-  - Filtrarlos / Ordenarlos
-  - Agregar nuevos perros
+Start the server:
+```bash
+npm start
+```
+The server will initialize and sync the database models. It listens on port `3001`.
 
+### 3. Frontend Setup (Client)
+Open a new terminal and navigate to the `client` directory:
+```bash
+cd client
+```
 
-#### Frontend
+Install dependencies:
+```bash
+npm install
+```
 
-Se debe desarrolló una aplicación de React/Redux que contiene las siguientes pantallas/rutas.
+Start the development server:
+```bash
+npm start
+```
+The application will open in your browser at `http://localhost:3000`.
 
-__Pagina inicial__: una landing page con
-- [ ] Una imagen de fondo representativa al proyecto
-- [ ] Botón para ingresar al home (`Ruta principal`)
+## 🧪 Running Tests
 
-__Ruta principal__: contiene
-- [ ] Input de búsqueda para encontrar razas de perros por nombre
-- [ ] Área donde se verá el listado de razas de perros. Muestra:
-  - Imagen
-  - Nombre
-  - Temperamento
-- [ ] Opciones para filtrar por por temperamento y por raza existente o agregada por nosotros
-- [ ] Opciones para ordenar tanto ascendentemente como descendentemente las razas de perro por orden alfabético y por peso
-- [ ] Paginado para buscar y mostrar las siguientes razas
+The project includes unit tests for the backend logic.
+```bash
+cd api
+npm test
+```
 
-__IMPORTANTE__: Dentro de la Ruta Principal se muestran tanto las razas de perros traidas desde la API como también las de la base de datos.
-
-__Ruta de detalle de raza de perro__: contiene
-- [ ] Los campos mostrados en la ruta principal para cada raza (imagen, nombre y temperamento)
-- [ ] Altura
-- [ ] Peso
-- [ ] Años de vida
-
-__Ruta de creación de raza de perro__: contiene
-- [ ] Un formulario __controlado__ con los siguientes campos
-  - Nombre
-  - Altura (Diferenciar entre altura mínima y máxima)
-  - Peso (Diferenciar entre peso mínimo y máximo)
-  - Años de vida
-- [ ] Posibilidad de agregar uno o más temperamentos
-- [ ] Opción de crear una nueva raza de perro
-
-#### Base de datos
-
-El modelo de la base de datos tiene las siguientes entidades:
-
-- [ ] Raza con las siguientes propiedades:
-  - ID 
-  - Nombre 
-  - Altura 
-  - Peso 
-  - Años de vida
-- [ ] Temperamento con las siguientes propiedades:
-  - ID
-  - Nombre
-
-La relación entre ambas entidades es de muchos a muchos ya que una raza de perro puede tener varios "temperamentos" en simultaneo y, a su vez, un "temperamento" puede corresponder a múltiples razas de perros. Por ejemplo, la raza `pug` es dócil, inteligente y sociable (entre otras). Pero a su vez existen otras razas de perro que también son sociables o inteligentes.
-
-
-#### Backend
-
-Se desarrolló un servidor en Node/Express con las siguientes rutas:
-
-- [ ] __GET /dogs__:
-  - Obtiene un listado de las primeras 8 razas de perro
-  - Devuelve solo los datos necesarios para la ruta principal
-- [ ] __GET /dogs?name="..."__:
-  - Obtiene un listado de las primeras 8 razas de perro que contengan la palabra ingresada como query parameter
-  - Si no existe ninguna raza de perro muestra un mensaje adecuado
-- [ ] __GET /dogs/{idRaza}__:
-  - Obtiene el detalle de una raza de perro en particular
-  - Devuelve solo los datos pedidos en la ruta de detalle de raza de perro
-  - Incluye los temperamentos asociados
-- [ ] __GET /temperament__:
-  - Obtiene todos los temperamentos posibles
-  - Los temperamentos fueron previamente cargados a la base de datos desde la API
-- [ ] __POST /dog__:
-  - Recibe los datos recolectados desde el formulario controlado de la ruta de creación de raza de perro por body
-  - Crea una raza de perro en la base de datos
-
-
+---
+*Refactored and Audited by Jules - Technical Lead*
